@@ -1,0 +1,352 @@
+[
+    {
+        "invoice_id": "INV2000",
+        "buyer_name": "Reliance",
+        "amount": 83988.59,
+        "issue_date": "2026-07-01",
+        "due_date": "2026-07-31"
+    },
+    {
+        "invoice_id": "INV2001",
+        "buyer_name": "Reliance",
+        "amount": 33330.07,
+        "issue_date": "2026-07-06",
+        "due_date": "2026-08-05"
+    },
+    {
+        "invoice_id": "INV2002",
+        "buyer_name": "Reliance",
+        "amount": 75065.0,
+        "issue_date": "2026-05-24",
+        "due_date": "2026-06-23"
+    },
+    {
+        "invoice_id": "INV2003",
+        "buyer_name": "Infosys",
+        "amount": 88462.04,
+        "issue_date": "2026-05-20",
+        "due_date": "2026-06-19"
+    },
+    {
+        "invoice_id": "INV2004",
+        "buyer_name": "Wipro",
+        "amount": 58457.01,
+        "issue_date": "2026-04-27",
+        "due_date": "2026-05-27"
+    },
+    {
+        "invoice_id": "INV2005",
+        "buyer_name": "Reliance",
+        "amount": 38055.3,
+        "issue_date": "2026-06-17",
+        "due_date": "2026-07-17"
+    },
+    {
+        "invoice_id": "INV2006",
+        "buyer_name": "Reliance",
+        "amount": 48380.89,
+        "issue_date": "2026-07-25",
+        "due_date": "2026-08-24"
+    },
+    {
+        "invoice_id": "INV2007",
+        "buyer_name": "Reliance",
+        "amount": 91861.17,
+        "issue_date": "2026-06-25",
+        "due_date": "2026-07-25"
+    },
+    {
+        "invoice_id": "INV2008",
+        "buyer_name": "Reliance",
+        "amount": 30166.1,
+        "issue_date": "2026-07-03",
+        "due_date": "2026-08-02"
+    },
+    {
+        "invoice_id": "INV2009",
+        "buyer_name": "Reliance",
+        "amount": 57678.5,
+        "issue_date": "2026-06-22",
+        "due_date": "2026-07-22"
+    },
+    {
+        "invoice_id": "INV2010",
+        "buyer_name": "Reliance",
+        "amount": 87719.81,
+        "issue_date": "2026-05-17",
+        "due_date": "2026-06-16"
+    },
+    {
+        "invoice_id": "INV2011",
+        "buyer_name": "Reliance",
+        "amount": 25860.31,
+        "issue_date": "2026-04-15",
+        "due_date": "2026-05-15"
+    },
+    {
+        "invoice_id": "INV2012",
+        "buyer_name": "Reliance",
+        "amount": 5954.61,
+        "issue_date": "2026-04-12",
+        "due_date": "2026-05-12"
+    },
+    {
+        "invoice_id": "INV2013",
+        "buyer_name": "Reliance",
+        "amount": 66812.6,
+        "issue_date": "2026-08-09",
+        "due_date": "2026-09-08"
+    },
+    {
+        "invoice_id": "INV2014",
+        "buyer_name": "Wipro",
+        "amount": 15429.91,
+        "issue_date": "2026-06-24",
+        "due_date": "2026-07-24"
+    },
+    {
+        "invoice_id": "INV2015",
+        "buyer_name": "Reliance",
+        "amount": 66302.57,
+        "issue_date": "2026-05-23",
+        "due_date": "2026-06-22"
+    },
+    {
+        "invoice_id": "INV2016",
+        "buyer_name": "Reliance",
+        "amount": 54126.82,
+        "issue_date": "2026-06-03",
+        "due_date": "2026-07-03"
+    },
+    {
+        "invoice_id": "INV2017",
+        "buyer_name": "Reliance",
+        "amount": 42049.93,
+        "issue_date": "2026-04-29",
+        "due_date": "2026-05-29"
+    },
+    {
+        "invoice_id": "INV2018",
+        "buyer_name": "Tata",
+        "amount": 57091.76,
+        "issue_date": "2026-03-09",
+        "due_date": "2026-04-08"
+    },
+    {
+        "invoice_id": "INV2019",
+        "buyer_name": "Reliance",
+        "amount": 38422.1,
+        "issue_date": "2026-03-16",
+        "due_date": "2026-04-15"
+    },
+    {
+        "invoice_id": "INV2020",
+        "buyer_name": "Reliance",
+        "amount": 89673.26,
+        "issue_date": "2026-03-05",
+        "due_date": "2026-04-04"
+    },
+    {
+        "invoice_id": "INV2021",
+        "buyer_name": "Reliance",
+        "amount": 5008.08,
+        "issue_date": "2026-02-27",
+        "due_date": "2026-03-29"
+    },
+    {
+        "invoice_id": "INV2022",
+        "buyer_name": "Tata",
+        "amount": 58857.83,
+        "issue_date": "2026-04-04",
+        "due_date": "2026-05-04"
+    },
+    {
+        "invoice_id": "INV2023",
+        "buyer_name": "Tata",
+        "amount": 12176.32,
+        "issue_date": "2026-05-10",
+        "due_date": "2026-06-09"
+    },
+    {
+        "invoice_id": "INV2024",
+        "buyer_name": "Reliance",
+        "amount": 14217.68,
+        "issue_date": "2026-07-23",
+        "due_date": "2026-08-22"
+    },
+    {
+        "invoice_id": "INV2025",
+        "buyer_name": "Reliance",
+        "amount": 65339.68,
+        "issue_date": "2026-05-04",
+        "due_date": "2026-06-03"
+    },
+    {
+        "invoice_id": "INV2026",
+        "buyer_name": "Reliance",
+        "amount": 34189.13,
+        "issue_date": "2026-05-18",
+        "due_date": "2026-06-17"
+    },
+    {
+        "invoice_id": "INV2027",
+        "buyer_name": "Wipro",
+        "amount": 17633.06,
+        "issue_date": "2026-02-25",
+        "due_date": "2026-03-27"
+    },
+    {
+        "invoice_id": "INV2028",
+        "buyer_name": "Reliance",
+        "amount": 8223.21,
+        "issue_date": "2026-06-09",
+        "due_date": "2026-07-09"
+    },
+    {
+        "invoice_id": "INV2029",
+        "buyer_name": "Reliance",
+        "amount": 94231.49,
+        "issue_date": "2026-04-28",
+        "due_date": "2026-05-28"
+    },
+    {
+        "invoice_id": "INV2030",
+        "buyer_name": "Reliance",
+        "amount": 37431.27,
+        "issue_date": "2026-04-06",
+        "due_date": "2026-05-06"
+    },
+    {
+        "invoice_id": "INV2031",
+        "buyer_name": "Infosys",
+        "amount": 71278.43,
+        "issue_date": "2026-05-13",
+        "due_date": "2026-06-12"
+    },
+    {
+        "invoice_id": "INV2032",
+        "buyer_name": "Reliance",
+        "amount": 64607.44,
+        "issue_date": "2026-02-25",
+        "due_date": "2026-03-27"
+    },
+    {
+        "invoice_id": "INV2033",
+        "buyer_name": "Reliance",
+        "amount": 68047.98,
+        "issue_date": "2026-05-08",
+        "due_date": "2026-06-07"
+    },
+    {
+        "invoice_id": "INV2034",
+        "buyer_name": "Reliance",
+        "amount": 9645.01,
+        "issue_date": "2026-06-07",
+        "due_date": "2026-07-07"
+    },
+    {
+        "invoice_id": "INV2035",
+        "buyer_name": "Reliance",
+        "amount": 83060.27,
+        "issue_date": "2026-04-02",
+        "due_date": "2026-05-02"
+    },
+    {
+        "invoice_id": "INV2036",
+        "buyer_name": "Reliance",
+        "amount": 25786.82,
+        "issue_date": "2026-05-23",
+        "due_date": "2026-06-22"
+    },
+    {
+        "invoice_id": "INV2037",
+        "buyer_name": "Reliance",
+        "amount": 23381.95,
+        "issue_date": "2026-05-06",
+        "due_date": "2026-06-05"
+    },
+    {
+        "invoice_id": "INV2038",
+        "buyer_name": "Tata",
+        "amount": 68160.28,
+        "issue_date": "2026-07-30",
+        "due_date": "2026-08-29"
+    },
+    {
+        "invoice_id": "INV2039",
+        "buyer_name": "Reliance",
+        "amount": 62204.96,
+        "issue_date": "2026-06-05",
+        "due_date": "2026-07-05"
+    },
+    {
+        "invoice_id": "INV2040",
+        "buyer_name": "Reliance",
+        "amount": 71834.03,
+        "issue_date": "2026-03-26",
+        "due_date": "2026-04-25"
+    },
+    {
+        "invoice_id": "INV2041",
+        "buyer_name": "Reliance",
+        "amount": 42751.9,
+        "issue_date": "2026-08-06",
+        "due_date": "2026-09-05"
+    },
+    {
+        "invoice_id": "INV2042",
+        "buyer_name": "Tata",
+        "amount": 17032.18,
+        "issue_date": "2026-03-28",
+        "due_date": "2026-04-27"
+    },
+    {
+        "invoice_id": "INV2043",
+        "buyer_name": "Reliance",
+        "amount": 56896.38,
+        "issue_date": "2026-07-23",
+        "due_date": "2026-08-22"
+    },
+    {
+        "invoice_id": "INV2044",
+        "buyer_name": "Reliance",
+        "amount": 8362.63,
+        "issue_date": "2026-04-01",
+        "due_date": "2026-05-01"
+    },
+    {
+        "invoice_id": "INV2045",
+        "buyer_name": "Reliance",
+        "amount": 94706.0,
+        "issue_date": "2026-04-01",
+        "due_date": "2026-05-01"
+    },
+    {
+        "invoice_id": "INV2046",
+        "buyer_name": "Wipro",
+        "amount": 51023.6,
+        "issue_date": "2026-04-20",
+        "due_date": "2026-05-20"
+    },
+    {
+        "invoice_id": "INV2047",
+        "buyer_name": "Reliance",
+        "amount": 85621.36,
+        "issue_date": "2026-08-14",
+        "due_date": "2026-09-13"
+    },
+    {
+        "invoice_id": "INV2048",
+        "buyer_name": "Reliance",
+        "amount": 91290.67,
+        "issue_date": "2026-06-25",
+        "due_date": "2026-07-25"
+    },
+    {
+        "invoice_id": "INV2049",
+        "buyer_name": "Infosys",
+        "amount": 13612.56,
+        "issue_date": "2026-05-10",
+        "due_date": "2026-06-09"
+    }
+]

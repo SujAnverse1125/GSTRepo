@@ -1,0 +1,92 @@
+import re
+
+file_path = "D:\\\\SIH2026\\\\frontend\\\\app\\\\page.tsx"
+
+with open(file_path, "r", encoding="utf-8") as f:
+    content = f.read()
+
+new_landing = """
+function LandingPage({ onNext }: { onNext: () => void }) {
+  const [phone, setPhone] = useState('');
+  const [showOtp, setShowOtp] = useState(false);
+  const [otp, setOtp] = useState('');
+
+  const handleSendOtp = () => {
+    if (phone.length >= 10) setShowOtp(true);
+  };
+
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center bg-[#020817] p-4 text-slate-100">
+      <div className="w-full max-w-md rounded-[24px] border border-slate-800 bg-slate-900/50 p-8 shadow-2xl text-center">
+        <div className="mb-6 flex justify-center">
+          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/30">
+            <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+        </div>
+        <h1 className="mb-2 text-3xl font-bold tracking-tight text-white">MSME Twin Login</h1>
+        <p className="mb-8 text-sm text-slate-400">Secure access to your liquidity command center.</p>
+        
+        {!showOtp ? (
+          <div className="space-y-4 animate-in fade-in">
+            <div className="text-left">
+              <label className="mb-1 block text-xs text-slate-400">Mobile Number</label>
+              <div className="flex">
+                <span className="inline-flex items-center rounded-l-lg border border-r-0 border-slate-700 bg-slate-800 px-3 text-sm text-slate-400">+91</span>
+                <input 
+                  type="tel" 
+                  maxLength={10}
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value.replace(/\\D/g, ''))}
+                  className="w-full rounded-r-lg border border-slate-700 bg-slate-800 px-4 py-2 text-white focus:border-cyan-500 focus:outline-none"
+                  placeholder="98765 43210"
+                />
+              </div>
+            </div>
+            <button 
+              onClick={handleSendOtp}
+              disabled={phone.length !== 10}
+              className="w-full rounded-lg bg-cyan-500 px-4 py-3 font-semibold text-slate-950 transition hover:bg-cyan-400 disabled:opacity-50"
+            >
+              Send Secure OTP
+            </button>
+          </div>
+        ) : (
+          <div className="space-y-4 animate-in fade-in slide-in-from-right-4">
+            <div className="text-left">
+              <label className="mb-1 flex justify-between text-xs text-slate-400">
+                <span>Enter OTP sent to +91 {phone}</span>
+                <button onClick={() => setShowOtp(false)} className="text-cyan-400 hover:underline">Edit</button>
+              </label>
+              <input 
+                type="text" 
+                maxLength={6}
+                value={otp}
+                onChange={(e) => setOtp(e.target.value.replace(/\\D/g, ''))}
+                className="w-full rounded-lg border border-slate-700 bg-slate-800 px-4 py-3 text-center tracking-[0.5em] text-white focus:border-cyan-500 focus:outline-none"
+                placeholder="••••••"
+              />
+            </div>
+            <button 
+              onClick={onNext}
+              disabled={otp.length !== 6}
+              className="w-full rounded-lg bg-cyan-500 px-4 py-3 font-semibold text-slate-950 transition hover:bg-cyan-400 disabled:opacity-50"
+            >
+              Verify & Login
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+"""
+
+# Use regex to replace the old LandingPage function
+content = re.sub(r'function LandingPage.*?return \(.*?\);\n}', new_landing, content, flags=re.DOTALL)
+
+with open(file_path, "w", encoding="utf-8") as f:
+    f.write(content)
+
+print("Auth UI injected.")

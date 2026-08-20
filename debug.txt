@@ -1,0 +1,15 @@
+651:                      )}
+652:                    </div>
+653:                  </div>
+654:                </div>
+655:             </div>
+656:           </div>
+657:         </div>
+658:       )}
+659:       
+660:       {appState === 'dashboard' && (
+661:         <footer className="max-w-7xl mx-auto mt-12 pt-8 border-t border-[#1A1C20]/10 text-center pb-8 animate-in fade-in">
+662:           <p className="text-xs font-bold text-[#1A1C20]/40 uppercase tracking-widest">
+663:             Responsible AI Guardrails Active
+664:           </p>
+665:           <p className="text-sm text-[#1A1C20]/60 mt-2">

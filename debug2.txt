@@ -1,0 +1,14 @@
+691:             <button 
+692:               onClick={confirmUpload} 
+693:               disabled={!selectedFile}
+694:               className={`w-full py-4 rounded-xl font-bold transition-all shadow-md flex items-center justify-center gap-2 ${selectedFile ? 'bg-[#1A1C20] text-white hover:bg-[#2D3139]' : 'bg-[#1A1C20]/10 text-[#1A1C20]/40 cursor-not-allowed'}`}
+695:             >
+696:               {selectedFile && <CheckCircle2 className="w-5 h-5" />}
+697:               {selectedFile ? 'Upload & Sync Data' : 'Select a file first'}
+698:             </button>
+699:           </div>
+700:         </div>
+701:       )}
+702:     </div>
+703:   );
+704: }

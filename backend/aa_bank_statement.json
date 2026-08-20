@@ -1,0 +1,702 @@
+[
+    {
+        "tx_id": "TXN1000",
+        "date": "2026-06-11",
+        "amount": -780.24,
+        "category": "Operating",
+        "description": "Mock transaction 0"
+    },
+    {
+        "tx_id": "TXN1001",
+        "date": "2026-07-09",
+        "amount": 12123.0,
+        "category": "Financing",
+        "description": "Mock transaction 1"
+    },
+    {
+        "tx_id": "TXN1002",
+        "date": "2026-07-29",
+        "amount": 12643.38,
+        "category": "Tax",
+        "description": "Mock transaction 2"
+    },
+    {
+        "tx_id": "TXN1003",
+        "date": "2026-08-15",
+        "amount": 911.42,
+        "category": "Financing",
+        "description": "Mock transaction 3"
+    },
+    {
+        "tx_id": "TXN1004",
+        "date": "2026-06-11",
+        "amount": 2707.71,
+        "category": "Operating",
+        "description": "Mock transaction 4"
+    },
+    {
+        "tx_id": "TXN1005",
+        "date": "2026-08-01",
+        "amount": 45167.1,
+        "category": "Operating",
+        "description": "Mock transaction 5"
+    },
+    {
+        "tx_id": "TXN1006",
+        "date": "2026-06-14",
+        "amount": 13238.38,
+        "category": "Financing",
+        "description": "Mock transaction 6"
+    },
+    {
+        "tx_id": "TXN1007",
+        "date": "2026-05-02",
+        "amount": -648.31,
+        "category": "Financing",
+        "description": "Mock transaction 7"
+    },
+    {
+        "tx_id": "TXN1008",
+        "date": "2026-06-03",
+        "amount": 20618.08,
+        "category": "Operating",
+        "description": "Mock transaction 8"
+    },
+    {
+        "tx_id": "TXN1009",
+        "date": "2026-04-23",
+        "amount": 34209.65,
+        "category": "Financing",
+        "description": "Mock transaction 9"
+    },
+    {
+        "tx_id": "TXN1010",
+        "date": "2026-05-09",
+        "amount": 39282.36,
+        "category": "Operating",
+        "description": "Mock transaction 10"
+    },
+    {
+        "tx_id": "TXN1011",
+        "date": "2026-05-24",
+        "amount": 23490.38,
+        "category": "Operating",
+        "description": "Mock transaction 11"
+    },
+    {
+        "tx_id": "TXN1012",
+        "date": "2026-04-30",
+        "amount": 45386.43,
+        "category": "Tax",
+        "description": "Mock transaction 12"
+    },
+    {
+        "tx_id": "TXN1013",
+        "date": "2026-04-22",
+        "amount": 38111.64,
+        "category": "Tax",
+        "description": "Mock transaction 13"
+    },
+    {
+        "tx_id": "TXN1014",
+        "date": "2026-06-18",
+        "amount": 43953.98,
+        "category": "Operating",
+        "description": "Mock transaction 14"
+    },
+    {
+        "tx_id": "TXN1015",
+        "date": "2026-06-27",
+        "amount": 1011.22,
+        "category": "Financing",
+        "description": "Mock transaction 15"
+    },
+    {
+        "tx_id": "TXN1016",
+        "date": "2026-03-10",
+        "amount": 37264.48,
+        "category": "Financing",
+        "description": "Mock transaction 16"
+    },
+    {
+        "tx_id": "TXN1017",
+        "date": "2026-05-12",
+        "amount": 31331.41,
+        "category": "Financing",
+        "description": "Mock transaction 17"
+    },
+    {
+        "tx_id": "TXN1018",
+        "date": "2026-06-09",
+        "amount": 25325.23,
+        "category": "Operating",
+        "description": "Mock transaction 18"
+    },
+    {
+        "tx_id": "TXN1019",
+        "date": "2026-05-26",
+        "amount": 44067.56,
+        "category": "Operating",
+        "description": "Mock transaction 19"
+    },
+    {
+        "tx_id": "TXN1020",
+        "date": "2026-03-13",
+        "amount": 8053.82,
+        "category": "Operating",
+        "description": "Mock transaction 20"
+    },
+    {
+        "tx_id": "TXN1021",
+        "date": "2026-04-13",
+        "amount": 25792.51,
+        "category": "Financing",
+        "description": "Mock transaction 21"
+    },
+    {
+        "tx_id": "TXN1022",
+        "date": "2026-03-25",
+        "amount": 35803.42,
+        "category": "Operating",
+        "description": "Mock transaction 22"
+    },
+    {
+        "tx_id": "TXN1023",
+        "date": "2026-03-30",
+        "amount": 14531.62,
+        "category": "Tax",
+        "description": "Mock transaction 23"
+    },
+    {
+        "tx_id": "TXN1024",
+        "date": "2026-08-03",
+        "amount": 35815.15,
+        "category": "Financing",
+        "description": "Mock transaction 24"
+    },
+    {
+        "tx_id": "TXN1025",
+        "date": "2026-07-01",
+        "amount": 32693.78,
+        "category": "Tax",
+        "description": "Mock transaction 25"
+    },
+    {
+        "tx_id": "TXN1026",
+        "date": "2026-05-24",
+        "amount": 4606.99,
+        "category": "Operating",
+        "description": "Mock transaction 26"
+    },
+    {
+        "tx_id": "TXN1027",
+        "date": "2026-07-03",
+        "amount": 12432.6,
+        "category": "Tax",
+        "description": "Mock transaction 27"
+    },
+    {
+        "tx_id": "TXN1028",
+        "date": "2026-03-05",
+        "amount": 19609.69,
+        "category": "Tax",
+        "description": "Mock transaction 28"
+    },
+    {
+        "tx_id": "TXN1029",
+        "date": "2026-04-14",
+        "amount": -162.11,
+        "category": "Financing",
+        "description": "Mock transaction 29"
+    },
+    {
+        "tx_id": "TXN1030",
+        "date": "2026-03-23",
+        "amount": 13999.57,
+        "category": "Tax",
+        "description": "Mock transaction 30"
+    },
+    {
+        "tx_id": "TXN1031",
+        "date": "2026-04-24",
+        "amount": 43241.79,
+        "category": "Tax",
+        "description": "Mock transaction 31"
+    },
+    {
+        "tx_id": "TXN1032",
+        "date": "2026-07-15",
+        "amount": 16640.61,
+        "category": "Financing",
+        "description": "Mock transaction 32"
+    },
+    {
+        "tx_id": "TXN1033",
+        "date": "2026-06-06",
+        "amount": 33682.32,
+        "category": "Financing",
+        "description": "Mock transaction 33"
+    },
+    {
+        "tx_id": "TXN1034",
+        "date": "2026-02-22",
+        "amount": 46834.4,
+        "category": "Financing",
+        "description": "Mock transaction 34"
+    },
+    {
+        "tx_id": "TXN1035",
+        "date": "2026-07-11",
+        "amount": 45292.48,
+        "category": "Tax",
+        "description": "Mock transaction 35"
+    },
+    {
+        "tx_id": "TXN1036",
+        "date": "2026-05-22",
+        "amount": 3813.97,
+        "category": "Financing",
+        "description": "Mock transaction 36"
+    },
+    {
+        "tx_id": "TXN1037",
+        "date": "2026-05-25",
+        "amount": 12624.82,
+        "category": "Financing",
+        "description": "Mock transaction 37"
+    },
+    {
+        "tx_id": "TXN1038",
+        "date": "2026-05-08",
+        "amount": 3063.65,
+        "category": "Operating",
+        "description": "Mock transaction 38"
+    },
+    {
+        "tx_id": "TXN1039",
+        "date": "2026-08-04",
+        "amount": 43395.07,
+        "category": "Financing",
+        "description": "Mock transaction 39"
+    },
+    {
+        "tx_id": "TXN1040",
+        "date": "2026-06-15",
+        "amount": 5808.42,
+        "category": "Tax",
+        "description": "Mock transaction 40"
+    },
+    {
+        "tx_id": "TXN1041",
+        "date": "2026-04-24",
+        "amount": 40697.44,
+        "category": "Operating",
+        "description": "Mock transaction 41"
+    },
+    {
+        "tx_id": "TXN1042",
+        "date": "2026-02-20",
+        "amount": 18876.64,
+        "category": "Financing",
+        "description": "Mock transaction 42"
+    },
+    {
+        "tx_id": "TXN1043",
+        "date": "2026-04-24",
+        "amount": 37215.44,
+        "category": "Tax",
+        "description": "Mock transaction 43"
+    },
+    {
+        "tx_id": "TXN1044",
+        "date": "2026-06-07",
+        "amount": 25537.23,
+        "category": "Tax",
+        "description": "Mock transaction 44"
+    },
+    {
+        "tx_id": "TXN1045",
+        "date": "2026-03-26",
+        "amount": 11514.31,
+        "category": "Operating",
+        "description": "Mock transaction 45"
+    },
+    {
+        "tx_id": "TXN1046",
+        "date": "2026-06-17",
+        "amount": 35939.91,
+        "category": "Tax",
+        "description": "Mock transaction 46"
+    },
+    {
+        "tx_id": "TXN1047",
+        "date": "2026-08-01",
+        "amount": 42473.24,
+        "category": "Tax",
+        "description": "Mock transaction 47"
+    },
+    {
+        "tx_id": "TXN1048",
+        "date": "2026-05-28",
+        "amount": 24434.47,
+        "category": "Financing",
+        "description": "Mock transaction 48"
+    },
+    {
+        "tx_id": "TXN1049",
+        "date": "2026-04-19",
+        "amount": 30958.97,
+        "category": "Financing",
+        "description": "Mock transaction 49"
+    },
+    {
+        "tx_id": "TXN1050",
+        "date": "2026-06-03",
+        "amount": -4075.58,
+        "category": "Financing",
+        "description": "Mock transaction 50"
+    },
+    {
+        "tx_id": "TXN1051",
+        "date": "2026-05-31",
+        "amount": 15715.48,
+        "category": "Tax",
+        "description": "Mock transaction 51"
+    },
+    {
+        "tx_id": "TXN1052",
+        "date": "2026-03-15",
+        "amount": 2274.17,
+        "category": "Tax",
+        "description": "Mock transaction 52"
+    },
+    {
+        "tx_id": "TXN1053",
+        "date": "2026-06-23",
+        "amount": 44872.35,
+        "category": "Tax",
+        "description": "Mock transaction 53"
+    },
+    {
+        "tx_id": "TXN1054",
+        "date": "2026-06-18",
+        "amount": 17616.56,
+        "category": "Tax",
+        "description": "Mock transaction 54"
+    },
+    {
+        "tx_id": "TXN1055",
+        "date": "2026-04-19",
+        "amount": 9687.98,
+        "category": "Tax",
+        "description": "Mock transaction 55"
+    },
+    {
+        "tx_id": "TXN1056",
+        "date": "2026-06-04",
+        "amount": 36069.79,
+        "category": "Tax",
+        "description": "Mock transaction 56"
+    },
+    {
+        "tx_id": "TXN1057",
+        "date": "2026-06-08",
+        "amount": 2696.12,
+        "category": "Financing",
+        "description": "Mock transaction 57"
+    },
+    {
+        "tx_id": "TXN1058",
+        "date": "2026-05-04",
+        "amount": 22233.76,
+        "category": "Financing",
+        "description": "Mock transaction 58"
+    },
+    {
+        "tx_id": "TXN1059",
+        "date": "2026-04-18",
+        "amount": 5721.58,
+        "category": "Financing",
+        "description": "Mock transaction 59"
+    },
+    {
+        "tx_id": "TXN1060",
+        "date": "2026-04-11",
+        "amount": -2440.15,
+        "category": "Financing",
+        "description": "Mock transaction 60"
+    },
+    {
+        "tx_id": "TXN1061",
+        "date": "2026-07-09",
+        "amount": 25597.93,
+        "category": "Financing",
+        "description": "Mock transaction 61"
+    },
+    {
+        "tx_id": "TXN1062",
+        "date": "2026-05-18",
+        "amount": 15108.15,
+        "category": "Operating",
+        "description": "Mock transaction 62"
+    },
+    {
+        "tx_id": "TXN1063",
+        "date": "2026-05-22",
+        "amount": 38596.56,
+        "category": "Operating",
+        "description": "Mock transaction 63"
+    },
+    {
+        "tx_id": "TXN1064",
+        "date": "2026-03-11",
+        "amount": 17275.63,
+        "category": "Financing",
+        "description": "Mock transaction 64"
+    },
+    {
+        "tx_id": "TXN1065",
+        "date": "2026-06-25",
+        "amount": 4631.55,
+        "category": "Tax",
+        "description": "Mock transaction 65"
+    },
+    {
+        "tx_id": "TXN1066",
+        "date": "2026-07-21",
+        "amount": 20227.54,
+        "category": "Tax",
+        "description": "Mock transaction 66"
+    },
+    {
+        "tx_id": "TXN1067",
+        "date": "2026-08-17",
+        "amount": 36756.68,
+        "category": "Operating",
+        "description": "Mock transaction 67"
+    },
+    {
+        "tx_id": "TXN1068",
+        "date": "2026-06-01",
+        "amount": 48647.56,
+        "category": "Tax",
+        "description": "Mock transaction 68"
+    },
+    {
+        "tx_id": "TXN1069",
+        "date": "2026-06-12",
+        "amount": 7483.71,
+        "category": "Tax",
+        "description": "Mock transaction 69"
+    },
+    {
+        "tx_id": "TXN1070",
+        "date": "2026-05-07",
+        "amount": 5025.03,
+        "category": "Tax",
+        "description": "Mock transaction 70"
+    },
+    {
+        "tx_id": "TXN1071",
+        "date": "2026-04-23",
+        "amount": 13378.38,
+        "category": "Financing",
+        "description": "Mock transaction 71"
+    },
+    {
+        "tx_id": "TXN1072",
+        "date": "2026-06-02",
+        "amount": 22309.77,
+        "category": "Tax",
+        "description": "Mock transaction 72"
+    },
+    {
+        "tx_id": "TXN1073",
+        "date": "2026-04-09",
+        "amount": 39475.26,
+        "category": "Tax",
+        "description": "Mock transaction 73"
+    },
+    {
+        "tx_id": "TXN1074",
+        "date": "2026-03-01",
+        "amount": 41502.56,
+        "category": "Tax",
+        "description": "Mock transaction 74"
+    },
+    {
+        "tx_id": "TXN1075",
+        "date": "2026-04-08",
+        "amount": 7988.42,
+        "category": "Financing",
+        "description": "Mock transaction 75"
+    },
+    {
+        "tx_id": "TXN1076",
+        "date": "2026-07-14",
+        "amount": 7180.22,
+        "category": "Financing",
+        "description": "Mock transaction 76"
+    },
+    {
+        "tx_id": "TXN1077",
+        "date": "2026-02-21",
+        "amount": 40627.18,
+        "category": "Tax",
+        "description": "Mock transaction 77"
+    },
+    {
+        "tx_id": "TXN1078",
+        "date": "2026-07-25",
+        "amount": 34708.19,
+        "category": "Financing",
+        "description": "Mock transaction 78"
+    },
+    {
+        "tx_id": "TXN1079",
+        "date": "2026-05-24",
+        "amount": 29193.13,
+        "category": "Operating",
+        "description": "Mock transaction 79"
+    },
+    {
+        "tx_id": "TXN1080",
+        "date": "2026-06-23",
+        "amount": 27727.12,
+        "category": "Tax",
+        "description": "Mock transaction 80"
+    },
+    {
+        "tx_id": "TXN1081",
+        "date": "2026-05-23",
+        "amount": 42822.68,
+        "category": "Financing",
+        "description": "Mock transaction 81"
+    },
+    {
+        "tx_id": "TXN1082",
+        "date": "2026-08-10",
+        "amount": 24799.99,
+        "category": "Financing",
+        "description": "Mock transaction 82"
+    },
+    {
+        "tx_id": "TXN1083",
+        "date": "2026-06-05",
+        "amount": 28379.6,
+        "category": "Tax",
+        "description": "Mock transaction 83"
+    },
+    {
+        "tx_id": "TXN1084",
+        "date": "2026-06-25",
+        "amount": 39415.17,
+        "category": "Financing",
+        "description": "Mock transaction 84"
+    },
+    {
+        "tx_id": "TXN1085",
+        "date": "2026-07-15",
+        "amount": 8604.68,
+        "category": "Tax",
+        "description": "Mock transaction 85"
+    },
+    {
+        "tx_id": "TXN1086",
+        "date": "2026-06-22",
+        "amount": 42718.94,
+        "category": "Financing",
+        "description": "Mock transaction 86"
+    },
+    {
+        "tx_id": "TXN1087",
+        "date": "2026-03-21",
+        "amount": 43576.29,
+        "category": "Tax",
+        "description": "Mock transaction 87"
+    },
+    {
+        "tx_id": "TXN1088",
+        "date": "2026-08-05",
+        "amount": -617.43,
+        "category": "Tax",
+        "description": "Mock transaction 88"
+    },
+    {
+        "tx_id": "TXN1089",
+        "date": "2026-04-01",
+        "amount": 756.23,
+        "category": "Financing",
+        "description": "Mock transaction 89"
+    },
+    {
+        "tx_id": "TXN1090",
+        "date": "2026-03-17",
+        "amount": 8489.11,
+        "category": "Financing",
+        "description": "Mock transaction 90"
+    },
+    {
+        "tx_id": "TXN1091",
+        "date": "2026-03-30",
+        "amount": 10978.1,
+        "category": "Financing",
+        "description": "Mock transaction 91"
+    },
+    {
+        "tx_id": "TXN1092",
+        "date": "2026-07-22",
+        "amount": 13308.86,
+        "category": "Operating",
+        "description": "Mock transaction 92"
+    },
+    {
+        "tx_id": "TXN1093",
+        "date": "2026-03-12",
+        "amount": 11107.57,
+        "category": "Tax",
+        "description": "Mock transaction 93"
+    },
+    {
+        "tx_id": "TXN1094",
+        "date": "2026-06-10",
+        "amount": 39655.01,
+        "category": "Financing",
+        "description": "Mock transaction 94"
+    },
+    {
+        "tx_id": "TXN1095",
+        "date": "2026-05-22",
+        "amount": 5451.15,
+        "category": "Financing",
+        "description": "Mock transaction 95"
+    },
+    {
+        "tx_id": "TXN1096",
+        "date": "2026-06-15",
+        "amount": 17215.58,
+        "category": "Tax",
+        "description": "Mock transaction 96"
+    },
+    {
+        "tx_id": "TXN1097",
+        "date": "2026-06-04",
+        "amount": -3903.58,
+        "category": "Tax",
+        "description": "Mock transaction 97"
+    },
+    {
+        "tx_id": "TXN1098",
+        "date": "2026-06-28",
+        "amount": 3806.19,
+        "category": "Operating",
+        "description": "Mock transaction 98"
+    },
+    {
+        "tx_id": "TXN1099",
+        "date": "2026-05-24",
+        "amount": 17720.27,
+        "category": "Tax",
+        "description": "Mock transaction 99"
+    }
+]

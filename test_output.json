@@ -1,0 +1,28 @@
+{
+  "status": 200,
+  "recentTxns": [
+    {
+      "source": "RTGS-TATA ELECTRONICS-INV...",
+      "amount": "\u20b9178938.00",
+      "status": "Settled",
+      "ai": "Synced from CSV",
+      "type": "success"
+    },
+    {
+      "source": "RTGS-ABC POLYMERS LTD",
+      "amount": "\u20b920000.00",
+      "status": "Paid",
+      "ai": "Synced from CSV",
+      "type": "warning"
+    },
+    {
+      "source": "NEFT-RELIANCE RETAIL-INV8...",
+      "amount": "\u20b9617752.00",
+      "status": "Settled",
+      "ai": "Synced from CSV",
+      "type": "success"
+    }
+  ],
+  "minProjectedBalance": 3467826.0599999996,
+  "cashOnHand": 4611194.0
+}

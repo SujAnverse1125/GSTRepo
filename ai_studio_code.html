@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MSME Twin — Autonomous AI Financial Twin for MSMEs</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['Space Grotesk', 'monospace'],
+          },
+          colors: {
+            obsidian: {
+              950: '#05070B',
+              900: '#070A0F',
+              800: '#0D131F',
+              700: '#141C2E',
+              600: '#1F2B45',
+            },
+            gold: {
+              400: '#F3D28A',
+              500: '#E5B869',
+              600: '#C8973E',
+            },
+            emerald: {
+              400: '#34D399',
+              500: '#10B981',
+              600: '#059669',
+            },
+            crimson: {
+              400: '#FB7185',
+              500: '#F43F5E',
+              600: '#E11D48',
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'flow': 'flow 3s linear infinite',
+            'shimmer': 'shimmer 2.5s infinite',
+          },
+          keyframes: {
+            flow: {
+              '0%': { strokeDashoffset: '24' },
+              '100%': { strokeDashoffset: '0' },
+            },
+            shimmer: {
+              '0%': { transform: 'translateX(-100%)' },
+              '100%': { transform: 'translateX(100%)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Glassmorphism & Micro-effects */
+    .glass-panel {
+      background: rgba(13, 19, 31, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    
+    .glass-panel-gold {
+      background: linear-gradient(135deg, rgba(229, 184, 105, 0.08) 0%, rgba(13, 19, 31, 0.75) 100%);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(229, 184, 105, 0.25);
+    }
+
+    .glow-gold {
+      box-shadow: 0 0 40px -10px rgba(229, 184, 105, 0.3);
+    }
+
+    .glow-emerald {
+      box-shadow: 0 0 30px -8px rgba(16, 185, 129, 0.4);
+    }
+
+    .glow-crimson {
+      box-shadow: 0 0 35px -8px rgba(244, 63, 94, 0.45);
+    }
+
+    .custom-range {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 9999px;
+      background: #1F2B45;
+      outline: none;
+    }
+    .custom-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #E5B869;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(229, 184, 105, 0.8);
+      transition: transform 0.15s ease;
+    }
+    .custom-range::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    /* Grid overlay background */
+    .bg-grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+  </style>
+</head>
+
+<body class="bg-obsidian-950 text-slate-200 selection:bg-gold-500 selection:text-obsidian-950 antialiased overflow-x-hidden">
+
+  <!-- BACKGROUND DECORATIONS -->
+  <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-b from-gold-500/10 via-emerald-500/5 to-transparent blur-[140px] pointer-events-none z-0"></div>
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 glass-panel border-b border-white/5 px-6 lg:px-12 py-3.5 transition-all">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-gold-600 to-gold-400 p-[1px] flex items-center justify-center">
+          <div class="w-full h-full bg-obsidian-900 rounded-[11px] flex items-center justify-center">
+            <svg class="w-5 h-5 text-gold-400 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5">
+            <span class="font-bold text-lg tracking-tight text-white font-mono">MSME<span class="text-gold-400 font-sans">Twin</span></span>
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+          </div>
+          <span class="text-[10px] text-slate-400 uppercase tracking-widest font-mono">Autonomous CFO</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#how-it-works" class="hover:text-gold-400 transition-colors">The GST Paradox</a>
+        <a href="#twin-engine" class="hover:text-gold-400 transition-colors">Digital Twin Engine</a>
+        <a href="#pipeline" class="hover:text-gold-400 transition-colors">Data Pipeline</a>
+        <a href="#simulator" class="hover:text-gold-400 transition-colors">Liquidity Simulator</a>
+        <a href="#security" class="hover:text-gold-400 transition-colors">Security Vault</a>
+      </div>
+
+      <!-- Right CTAs -->
+      <div class="flex items-center gap-3.5">
+        <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          RBI AA Sandbox Live
+        </div>
+        <a href="#simulator" class="relative group overflow-hidden px-5 py-2.5 rounded-xl bg-gradient-to-r from-gold-500 to-gold-600 text-obsidian-950 font-bold text-sm tracking-tight hover:brightness-110 transition-all glow-gold flex items-center gap-2">
+          <span>Launch Demo</span>
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. HERO SECTION WITH INTERACTIVE 90-DAY DIGITAL TWIN SIMULATION -->
+  <section class="relative pt-16 pb-24 lg:pt-24 lg:pb-32 px-6 lg:px-12 z-10">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      
+      <!-- Left Hero Pitch -->
+      <div class="lg:col-span-6 flex flex-col gap-6">
+        
+        <!-- Hackathon & Protocol Pills -->
+        <div class="flex flex-wrap items-center gap-2.5">
+          <span class="px-3 py-1 rounded-full text-xs font-mono bg-gold-500/10 text-gold-400 border border-gold-500/30 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            Built for SIH • Problem Statement FinTech
+          </span>
+          <span class="px-3 py-1 rounded-full text-xs font-mono bg-slate-800 text-slate-300 border border-slate-700">
+            Account Aggregator Sandbox
+          </span>
+        </div>
+
+        <!-- Hero Headline -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
+          Survive the <span class="text-transparent bg-clip-text bg-gradient-to-r from-crimson-400 via-gold-400 to-gold-500">GST Trap</span> with an AI Digital Twin.
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl">
+          Connect your bank and GSTN data via RBI-approved consent. Our predictive twin maps your cash flow 90 days out, spots buyer payment delays, and bridges liquidity gaps before you face a tax default.
+        </p>
+
+        <!-- CTA Action Cluster -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+          <a href="#simulator" class="px-7 py-4 rounded-xl bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 text-obsidian-950 font-extrabold text-base tracking-tight text-center hover:brightness-110 transition-all glow-gold flex items-center justify-center gap-3">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            Launch Command Center
+          </a>
+          <a href="#how-it-works" class="px-6 py-4 rounded-xl glass-panel text-slate-300 hover:text-white hover:border-white/20 font-semibold text-base text-center transition-all flex items-center justify-center gap-2">
+            See How Twin Thinks
+          </a>
+        </div>
+
+        <!-- Real-Time Metrics Strip -->
+        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80">
+          <div>
+            <div class="text-2xl font-bold font-mono text-white">90 Days</div>
+            <div class="text-xs text-slate-400 font-medium">Forward Radar</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold font-mono text-emerald-400">100%</div>
+            <div class="text-xs text-slate-400 font-medium">Consent-Based AA</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold font-mono text-gold-400">1-Click</div>
+            <div class="text-xs text-slate-400 font-medium">TReDS Invoice Bridge</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Interactive 3D / Live Digital Twin Dashboard -->
+      <div class="lg:col-span-6">
+        <div class="relative rounded-2xl glass-panel border border-white/10 p-5 sm:p-7 shadow-2xl overflow-hidden">
+          
+          <!-- Ambient Glow inside card -->
+          <div class="absolute -top-24 -right-24 w-60 h-60 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <!-- Top Status Bar of the Twin -->
+          <div class="flex items-center justify-between pb-4 border-b border-white/10">
+            <div class="flex items-center gap-3">
+              <div class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></div>
+              <div>
+                <div class="text-xs font-mono text-slate-400 uppercase tracking-wider">FIP Node Connected</div>
+                <div class="text-sm font-semibold text-white">Shree Ganesh Metal Fabricators Pvt Ltd</div>
+              </div>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono text-slate-300 border border-slate-700">
+              GSTIN: 27AABCS1429B1Z
+            </span>
+          </div>
+
+          <!-- Scrubber Header -->
+          <div class="pt-5 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-mono text-gold-400 font-bold uppercase tracking-wider">90-Day Liquidity Map</span>
+              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded font-mono">Live Predictive Mode</span>
+            </div>
+            <div id="scrubber-badge" class="text-xs font-mono font-bold px-2.5 py-1 rounded bg-slate-800 border border-slate-700 text-slate-200">
+              Timeline: Day <span id="current-day-label" class="text-gold-400">18</span>
+            </div>
+          </div>
+
+          <!-- Interactive Bar Visualizer -->
+          <div class="mt-4 h-40 flex items-end justify-between gap-1 sm:gap-2 px-2 pb-2 bg-obsidian-900/90 rounded-xl border border-slate-800 relative">
+            
+            <!-- Day 1 - 10: Positive (Green) -->
+            <div class="w-full bg-emerald-500/80 rounded-t h-[65%] hover:brightness-125 transition-all relative group cursor-pointer">
+              <div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 text-[10px] bg-black px-1.5 py-0.5 rounded text-white font-mono pointer-events-none transition-opacity whitespace-nowrap">+₹4.2L Inflow</div>
+            </div>
+            <div class="w-full bg-emerald-500/80 rounded-t h-[75%]"></div>
+            <div class="w-full bg-emerald-500/80 rounded-t h-[55%]"></div>
+            <div class="w-full bg-emerald-500/60 rounded-t h-[60%]"></div>
+            <div class="w-full bg-emerald-500/70 rounded-t h-[50%]"></div>
+            
+            <!-- Day 15 - 20: Deficit Danger Zone (Crimson) -->
+            <div class="w-full bg-slate-700 rounded-t h-[35%]"></div>
+            <div class="w-full bg-crimson-500 rounded-t h-[20%] animate-pulse relative group cursor-pointer border-t-2 border-crimson-400">
+              <div class="absolute -top-9 left-1/2 -translate-x-1/2 text-[10px] bg-crimson-600 px-2 py-0.5 rounded text-white font-mono font-bold pointer-events-none whitespace-nowrap z-20">GST Due (Day 20)</div>
+            </div>
+            <div class="w-full bg-crimson-500/90 rounded-t h-[15%]"></div>
+            
+            <!-- Day 25 - 90: AI Recovery Zone (Gold / Green) -->
+            <div class="w-full bg-gold-500/80 rounded-t h-[45%]"></div>
+            <div class="w-full bg-gold-500/90 rounded-t h-[60%]"></div>
+            <div class="w-full bg-emerald-500/80 rounded-t h-[70%]"></div>
+            <div class="w-full bg-emerald-500/90 rounded-t h-[85%]"></div>
+            <div class="w-full bg-emerald-500/90 rounded-t h-[95%]"></div>
+            <div class="w-full bg-emerald-500/90 rounded-t h-[80%]"></div>
+
+            <!-- Dynamic Scrubber Vertical Line Indicator -->
+            <div id="timeline-indicator" class="absolute top-0 bottom-0 w-[2px] bg-gold-400 pointer-events-none left-[45%] transition-all">
+              <div class="w-2.5 h-2.5 rounded-full bg-gold-400 -translate-x-[4px] -top-1 absolute shadow-[0_0_8px_#E5B869]"></div>
+            </div>
+          </div>
+
+          <!-- Interactive Slider Scrubber -->
+          <div class="mt-4 px-1">
+            <div class="flex justify-between text-[11px] font-mono text-slate-400 mb-1.5">
+              <span>Day 1 (Today)</span>
+              <span class="text-crimson-400 font-bold">Day 20 (GST Due)</span>
+              <span>Day 60 (Invoice Due)</span>
+              <span>Day 90</span>
+            </div>
+            <input type="range" min="1" max="90" value="18" id="timelineScrubber" class="custom-range cursor-ew-resize" oninput="updateHeroSimulation(this.value)">
+          </div>
+
+          <!-- Dynamic Alert Card (Changes based on Scrubber) -->
+          <div id="dynamic-alert-box" class="mt-5 p-4 rounded-xl bg-crimson-950/40 border border-crimson-500/40 flex items-start gap-3.5 transition-all">
+            <div class="p-2 rounded-lg bg-crimson-500/20 text-crimson-400 mt-0.5">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <span class="text-sm font-bold text-white font-mono" id="alert-title">Critical GST Deficit Predicted on Day 18</span>
+                <span class="text-xs font-mono text-crimson-400 font-bold" id="alert-amount">- ₹2,45,000 Deficit</span>
+              </div>
+              <p class="text-xs text-slate-300 mt-1" id="alert-desc">
+                Buyer <strong>Tata Motors Vendor Tier-2</strong> has a historical payment delay variance of +28 days. You will not have cash to clear GSTR-3B by Day 20.
+              </p>
+            </div>
+          </div>
+
+          <!-- AI Action Matrix Trigger -->
+          <div class="mt-4 p-3.5 rounded-xl bg-slate-900/80 border border-gold-500/20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white">AI CFO Recommended Action</div>
+                <div class="text-[11px] text-slate-400">Instant TReDS Invoice Discounting on Inv #9042</div>
+              </div>
+            </div>
+            <button onclick="resolveShortfall()" id="resolve-btn" class="px-3.5 py-1.5 rounded-lg bg-gold-500 hover:bg-gold-400 text-obsidian-950 text-xs font-bold font-mono transition-all">
+              Auto-Bridge ₹2.5L
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 2. SCROLLYTELLING / STORY SECTION: THE GST LIQUIDITY PARADOX -->
+  <section id="how-it-works" class="py-24 px-6 lg:px-12 border-t border-white/5 bg-obsidian-900/50 relative">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono text-gold-400 uppercase tracking-widest px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20">
+          The MSME Reality
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight">
+          If You've Felt the Panic of a <span class="text-crimson-400">GST Deadline</span>, You're Not Alone.
+        </h2>
+        <p class="text-slate-400 mt-4 text-base leading-relaxed">
+          Indian MSMEs struggle silently with the GST Liquidity Paradox: You supply the goods on Day 1, the government demands tax on Day 20, but corporate buyers take 90 days to settle.
+        </p>
+      </div>
+
+      <!-- 3-Phase Interactive Timeline Progression -->
+      <div class="grid md:grid-cols-3 gap-6 relative">
+        
+        <!-- Step 1 -->
+        <div class="glass-panel p-7 rounded-2xl border border-white/5 relative overflow-hidden group hover:border-gold-500/40 transition-all">
+          <div class="text-xs font-mono text-gold-400 mb-2">PHASE 01 • DAY 1</div>
+          <div class="text-xl font-bold text-white mb-3">The Illusion of Profit</div>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            You dispatch ₹10,00,000 worth of auto-components. You issue a GST invoice for ₹11,80,000 (+18% GST). On paper, your business is thriving.
+          </p>
+          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono">
+            <span class="text-slate-400">Cash Received:</span>
+            <span class="text-white font-bold">₹0.00</span>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full mt-2 overflow-hidden">
+            <div class="bg-emerald-500 h-full w-[10%]"></div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="glass-panel p-7 rounded-2xl border border-crimson-500/30 bg-crimson-950/10 relative overflow-hidden group hover:border-crimson-500/60 transition-all">
+          <div class="text-xs font-mono text-crimson-400 mb-2 flex items-center gap-1.5 font-bold">
+            <span class="w-2 h-2 rounded-full bg-crimson-400 animate-ping"></span>
+            PHASE 02 • DAY 20 (THE CRUSH)
+          </div>
+          <div class="text-xl font-bold text-white mb-3">The Tax Deadline Strikes</div>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            GSTR-3B is due. You must deposit ₹1,80,000 GST to the government in hard cash. But your buyer has not paid yet. Working capital freezes.
+          </p>
+          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono">
+            <span class="text-slate-400">Cash Deficit:</span>
+            <span class="text-crimson-400 font-bold">- ₹1,80,000</span>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full mt-2 overflow-hidden">
+            <div class="bg-crimson-500 h-full w-[90%] animate-pulse"></div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="glass-panel p-7 rounded-2xl border border-emerald-500/30 relative overflow-hidden group hover:border-emerald-500/60 transition-all">
+          <div class="text-xs font-mono text-emerald-400 mb-2">PHASE 03 • WITH MSME TWIN</div>
+          <div class="text-xl font-bold text-white mb-3">Autonomous Protection</div>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            MSME Twin predicts this 70-day working capital crater on Day 3 and automatically executes invoice discounting at prime RBI rates. Zero tax default penalties.
+          </p>
+          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono">
+            <span class="text-slate-400">Liquidity Status:</span>
+            <span class="text-emerald-400 font-bold">100% Protected</span>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full mt-2 overflow-hidden">
+            <div class="bg-emerald-500 h-full w-[100%]"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. BENTO GRID 2.0: THE DIGITAL TWIN ENGINE -->
+  <section id="twin-engine" class="py-24 px-6 lg:px-12 relative z-10">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span class="text-xs font-mono text-gold-400 uppercase tracking-widest px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20">
+            Core Architecture
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight">
+            A Financial Tool That Feels Like a <span class="text-gold-400">Breath of Fresh Air.</span>
+          </h2>
+        </div>
+        <p class="text-slate-400 text-sm max-w-md">
+          We combine real-time Account Aggregator data streams with stochastic delay variance modeling — zero manual spreadsheet entries.
+        </p>
+      </div>
+
+      <!-- Bento Grid Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-12 gap-6">
+        
+        <!-- Bento 1: Account Aggregator (Span 7) -->
+        <div class="lg:col-span-7 glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden flex flex-col justify-between group">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>
+            </div>
+            <span class="text-xs font-mono text-slate-400 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700">
+              100% Read-Only Sync
+            </span>
+          </div>
+
+          <div class="my-6">
+            <h3 class="text-2xl font-bold text-white">RBI Account Aggregator Integration</h3>
+            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+              Eliminate manual bank statement uploads and GST reconciliations. Authorize one-time digital consent to aggregate live telemetry from HDFC, SBI, ICICI, and GSTN instantly.
+            </p>
+          </div>
+
+          <!-- Interactive Mock Bank Pills -->
+          <div class="grid grid-cols-3 gap-3 p-4 rounded-xl bg-obsidian-900 border border-slate-800">
+            <div class="flex items-center gap-2 text-xs font-mono text-slate-200">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span> HDFC Bank
+            </div>
+            <div class="flex items-center gap-2 text-xs font-mono text-slate-200">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span> State Bank of India
+            </div>
+            <div class="flex items-center gap-2 text-xs font-mono text-slate-200">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span> GSTN GSTR-1/3B
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento 2: Delay Variance AI (Span 5) -->
+        <div class="lg:col-span-5 glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden flex flex-col justify-between group">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-500/30">
+              Stochastic Delay Engine
+            </span>
+          </div>
+
+          <div class="my-6">
+            <h3 class="text-2xl font-bold text-white">Buyer Delay Variance AI</h3>
+            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+              Standard accounting assumes buyers pay on due dates. MSME Twin calculates standard deviation on buyer payment histories to reveal true collection timelines.
+            </p>
+          </div>
+
+          <!-- Micro Delay Scatter Mini-Card -->
+          <div class="p-3.5 rounded-xl bg-obsidian-900 border border-slate-800 flex items-center justify-between text-xs font-mono">
+            <div>
+              <div class="text-slate-400 text-[10px]">Client: Larsen & Toubro Div 4</div>
+              <div class="text-white font-bold">Nominal: 45 Days • Actual: 73 Days</div>
+            </div>
+            <span class="text-crimson-400 font-bold bg-crimson-950/80 px-2 py-1 rounded">+28d Latency</span>
+          </div>
+        </div>
+
+        <!-- Bento 3: 1-Click Auto-Finance (Span 5) -->
+        <div class="lg:col-span-5 glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden flex flex-col justify-between group">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <span class="text-xs font-mono text-gold-400 bg-gold-500/10 px-3 py-1 rounded-full border border-gold-500/20">
+              TReDS Protocol
+            </span>
+          </div>
+
+          <div class="my-6">
+            <h3 class="text-2xl font-bold text-white">1-Click Auto-Finance Bridge</h3>
+            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+              When a cash crater is detected within 14 days of tax liability, MSME Twin generates pre-approved discounting on verified e-way bills with zero collateral friction.
+            </p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-obsidian-900 border border-slate-800 flex items-center justify-between">
+            <span class="text-xs font-mono text-slate-300">Auto-Bridge Deficits:</span>
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input type="checkbox" checked class="sr-only peer">
+              <div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gold-500"></div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Bento 4: AI CFO Action Matrix (Span 7) -->
+        <div class="lg:col-span-7 glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden flex flex-col justify-between group">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center text-white">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            </div>
+            <span class="text-xs font-mono text-slate-400 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
+              Autonomous Advisory
+            </span>
+          </div>
+
+          <div class="my-6">
+            <h3 class="text-2xl font-bold text-white">AI CFO Action Matrix</h3>
+            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+              Instead of static backward-looking charts, get 3 surgical execution commands tailored to your cash position every Monday morning.
+            </p>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-2.5">
+            <div class="p-3 rounded-xl bg-obsidian-900/90 border border-slate-800 text-xs">
+              <span class="text-gold-400 font-mono font-bold block mb-1">01 • REVENUE</span>
+              <span class="text-slate-300">Discount Inv #1088 for ₹1.4L cash injection.</span>
+            </div>
+            <div class="p-3 rounded-xl bg-obsidian-900/90 border border-slate-800 text-xs">
+              <span class="text-emerald-400 font-mono font-bold block mb-1">02 • PAYOUT</span>
+              <span class="text-slate-300">Reschedule Raw Material batch by 6 days.</span>
+            </div>
+            <div class="p-3 rounded-xl bg-obsidian-900/90 border border-slate-800 text-xs">
+              <span class="text-crimson-400 font-mono font-bold block mb-1">03 • TAX</span>
+              <span class="text-slate-300">Reserve ₹85K for 20th GSTR-3B filing.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. UNDER THE HOOD: INTERACTIVE DATA PIPELINE -->
+  <section id="pipeline" class="py-24 px-6 lg:px-12 bg-obsidian-900/70 border-y border-white/5 relative">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-mono text-gold-400 uppercase tracking-widest px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20">
+          Architecture
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight">
+          Under the <span class="text-gold-400">Hood</span>
+        </h2>
+        <p class="text-slate-400 text-sm mt-3">
+          A zero-friction, encrypted pipeline orchestrating read-only bank data into forward financial intelligence.
+        </p>
+      </div>
+
+      <!-- Pipeline Visual Flow Nodes -->
+      <div class="grid md:grid-cols-3 gap-8 relative items-center">
+        
+        <!-- Node 1 -->
+        <div class="glass-panel p-6 rounded-2xl border border-white/10 relative text-center flex flex-col items-center">
+          <div class="w-14 h-14 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center text-gold-400 mb-4 glow-gold">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div class="text-xs font-mono text-gold-400 mb-1">STEP 01</div>
+          <h4 class="text-lg font-bold text-white">1. Secure AA Consent</h4>
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+            You grant read-only financial access via the RBI Sahamati protocol. No passwords, no netbanking credentials ever shared.
+          </p>
+        </div>
+
+        <!-- Node 2 -->
+        <div class="glass-panel p-6 rounded-2xl border border-gold-500/40 relative text-center flex flex-col items-center glow-gold">
+          <div class="w-14 h-14 rounded-2xl bg-gold-500/20 border border-gold-500 flex items-center justify-center text-gold-400 mb-4">
+            <svg class="w-7 h-7 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </div>
+          <div class="text-xs font-mono text-gold-400 mb-1">STEP 02</div>
+          <h4 class="text-lg font-bold text-white">2. AI Ingestion & Modeling</h4>
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+            Our Python analytics core evaluates 12 months of GSTR-1, GSTR-3B filings and historical bank inflows to compute buyer delay variances.
+          </p>
+        </div>
+
+        <!-- Node 3 -->
+        <div class="glass-panel p-6 rounded-2xl border border-white/10 relative text-center flex flex-col items-center">
+          <div class="w-14 h-14 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center text-emerald-400 mb-4 glow-emerald">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <div class="text-xs font-mono text-emerald-400 mb-1">STEP 03</div>
+          <h4 class="text-lg font-bold text-white">3. Actionable Digital Twin</h4>
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+            A real-time predictive dashboard activates, providing a 90-day cash timeline and pre-approved liquidity bridges.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. COMPARISON MATRIX: TRADITIONAL VS. MSME DIGITAL TWIN -->
+  <section class="py-24 px-6 lg:px-12 relative">
+    <div class="max-w-5xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-mono text-gold-400 uppercase tracking-widest px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20">
+          Side-by-Side
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight">
+          Built for <span class="text-gold-400">MSMEs</span>, Not Banks.
+        </h2>
+        <p class="text-slate-400 text-sm mt-3">
+          Traditional accounting looks in the rearview mirror. MSME Twin looks through the high-beam windshield.
+        </p>
+      </div>
+
+      <!-- Modern Comparison Glass Table -->
+      <div class="rounded-3xl glass-panel border border-white/10 overflow-hidden shadow-2xl">
+        <div class="grid grid-cols-12 bg-obsidian-900/90 border-b border-white/10 p-5 font-mono text-xs uppercase tracking-wider text-slate-400">
+          <div class="col-span-6 sm:col-span-5">Capability</div>
+          <div class="col-span-3 sm:col-span-3 text-center">Traditional Tool</div>
+          <div class="col-span-3 sm:col-span-4 text-center text-gold-400 font-bold">MSME Digital Twin</div>
+        </div>
+
+        <div class="divide-y divide-white/5 text-sm">
+          
+          <!-- Row 1 -->
+          <div class="grid grid-cols-12 p-5 items-center hover:bg-white/[0.02] transition-colors">
+            <div class="col-span-6 sm:col-span-5 font-semibold text-white">Consent-Based Bank Sync</div>
+            <div class="col-span-3 sm:col-span-3 text-center text-crimson-400 font-mono">✕ Manual CSV</div>
+            <div class="col-span-3 sm:col-span-4 text-center text-emerald-400 font-mono font-bold flex items-center justify-center gap-1.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Automated AA
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="grid grid-cols-12 p-5 items-center hover:bg-white/[0.02] transition-colors">
+            <div class="col-span-6 sm:col-span-5 font-semibold text-white">GST Shortfall Early Warning</div>
+            <div class="col-span-3 sm:col-span-3 text-center text-crimson-400 font-mono">✕ Discovered on 20th</div>
+            <div class="col-span-3 sm:col-span-4 text-center text-emerald-400 font-mono font-bold flex items-center justify-center gap-1.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              90 Days Ahead
+            </div>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="grid grid-cols-12 p-5 items-center hover:bg-white/[0.02] transition-colors">
+            <div class="col-span-6 sm:col-span-5 font-semibold text-white">Buyer Payment Delay Variance</div>
+            <div class="col-span-3 sm:col-span-3 text-center text-crimson-400 font-mono">✕ Fixed Due Date</div>
+            <div class="col-span-3 sm:col-span-4 text-center text-emerald-400 font-mono font-bold flex items-center justify-center gap-1.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              AI Probabilistic
+            </div>
+          </div>
+
+          <!-- Row 4 -->
+          <div class="grid grid-cols-12 p-5 items-center hover:bg-white/[0.02] transition-colors">
+            <div class="col-span-6 sm:col-span-5 font-semibold text-white">Autonomous Invoice Discounting</div>
+            <div class="col-span-3 sm:col-span-3 text-center text-crimson-400 font-mono">✕ Offline Bank Loan</div>
+            <div class="col-span-3 sm:col-span-4 text-center text-emerald-400 font-mono font-bold flex items-center justify-center gap-1.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              1-Click TReDS Bridge
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. INTERACTIVE LIQUIDITY CALCULATOR -->
+  <section id="simulator" class="py-24 px-6 lg:px-12 bg-obsidian-900/60 border-t border-white/5 relative">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono text-gold-400 uppercase tracking-widest px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20">
+          Live ROI Calculator
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight">
+          How Much Liquidity Can <span class="text-gold-400">MSME Twin</span> Protect For You?
+        </h2>
+        <p class="text-slate-400 text-sm mt-3">
+          Adjust the sliders below to calculate your estimated GST cash trap exposure.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 glass-panel p-8 sm:p-12 rounded-3xl border border-white/10">
+        
+        <!-- Controls Column -->
+        <div class="lg:col-span-7 flex flex-col justify-between gap-8">
+          
+          <!-- Slider 1: Turnover -->
+          <div>
+            <div class="flex justify-between items-center mb-3">
+              <label class="text-sm font-semibold text-white">Monthly Business Turnover</label>
+              <span class="text-base font-bold font-mono text-gold-400" id="turnover-display">₹50,00,000</span>
+            </div>
+            <input type="range" min="10" max="500" value="50" step="5" class="custom-range" id="turnoverSlider" oninput="calculateLiquidity()">
+            <div class="flex justify-between text-[11px] font-mono text-slate-500 mt-2">
+              <span>₹10 Lakhs</span>
+              <span>₹2.5 Crore</span>
+              <span>₹5.0 Crore</span>
+            </div>
+          </div>
+
+          <!-- Slider 2: Buyer Delay -->
+          <div>
+            <div class="flex justify-between items-center mb-3">
+              <label class="text-sm font-semibold text-white">Average Buyer Payment Delay</label>
+              <span class="text-base font-bold font-mono text-crimson-400" id="delay-display">65 Days</span>
+            </div>
+            <input type="range" min="15" max="120" value="65" step="1" class="custom-range" id="delaySlider" oninput="calculateLiquidity()">
+            <div class="flex justify-between text-[11px] font-mono text-slate-500 mt-2">
+              <span>15 Days</span>
+              <span>60 Days</span>
+              <span>120 Days</span>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-obsidian-950 border border-slate-800 text-xs text-slate-400 flex items-center gap-3">
+            <svg class="w-5 h-5 text-gold-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Calculation assumes standard 18% GST slab and 45-day statutory credit cycle under Section 43B(h).
+          </div>
+        </div>
+
+        <!-- Calculated Output Column -->
+        <div class="lg:col-span-5 rounded-2xl glass-panel-gold p-6 sm:p-8 flex flex-col justify-between border border-gold-500/30">
+          <div>
+            <span class="text-xs font-mono text-slate-300 uppercase tracking-wider block mb-2">Quarterly Protected Capital</span>
+            <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono" id="protected-capital">₹16,25,000</div>
+            <div class="text-xs text-emerald-400 mt-1 font-mono flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 9.586 14.586 6H12z" clip-rule="evenodd"/></svg>
+              Protected from working capital freeze
+            </div>
+          </div>
+
+          <div class="my-6 pt-6 border-t border-gold-500/20 space-y-3 text-xs font-mono">
+            <div class="flex justify-between text-slate-300">
+              <span>Avg GST Locked per Month:</span>
+              <span class="text-white font-bold" id="monthly-gst">₹9,00,000</span>
+            </div>
+            <div class="flex justify-between text-slate-300">
+              <span>Risk Penalty Avoided:</span>
+              <span class="text-emerald-400 font-bold" id="penalty-avoided">₹64,800/yr</span>
+            </div>
+          </div>
+
+          <button class="w-full py-3.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-obsidian-950 font-bold text-sm font-mono tracking-tight transition-all glow-gold">
+            Sync My Account Aggregator
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. BANK-GRADE SECURITY VAULT -->
+  <section id="security" class="py-24 px-6 lg:px-12 relative">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6">
+          <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+            Trust & Compliance
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight">
+            Bank-Grade Security. <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-emerald-400">Zero Data Retention.</span>
+          </h2>
+          <p class="text-slate-300 mt-4 leading-relaxed text-sm sm:text-base">
+            Your financial data is processed in ephemeral memory. We never store bank passwords, and you can revoke Account Aggregator consent at any second with a single tap.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-4 mt-8">
+            <div class="p-4 rounded-xl glass-panel border border-white/5">
+              <div class="text-emerald-400 font-mono font-bold text-sm mb-1">RBI AA Framework</div>
+              <div class="text-xs text-slate-400">Built strictly on Sahamati standards for secure electronic consent.</div>
+            </div>
+            <div class="p-4 rounded-xl glass-panel border border-white/5">
+              <div class="text-emerald-400 font-mono font-bold text-sm mb-1">AES-256 GCM</div>
+              <div class="text-xs text-slate-400">End-to-end military grade encryption in transit and ephemeral processing.</div>
+            </div>
+            <div class="p-4 rounded-xl glass-panel border border-white/5">
+              <div class="text-emerald-400 font-mono font-bold text-sm mb-1">DPDP Act (2023)</div>
+              <div class="text-xs text-slate-400">Full compliance with Indian Digital Personal Data Protection guidelines.</div>
+            </div>
+            <div class="p-4 rounded-xl glass-panel border border-white/5">
+              <div class="text-emerald-400 font-mono font-bold text-sm mb-1">Zero Password Access</div>
+              <div class="text-xs text-slate-400">Never asks for NetBanking passwords or transaction OTPs.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rotating Security Visual Vault -->
+        <div class="lg:col-span-6 flex justify-center">
+          <div class="relative w-72 h-72 sm:w-88 sm:h-88 flex items-center justify-center">
+            
+            <!-- Outer Ring -->
+            <div class="absolute inset-0 rounded-full border border-dashed border-gold-500/30 animate-[spin_20s_linear_infinite]"></div>
+            <!-- Mid Ring -->
+            <div class="absolute inset-6 rounded-full border border-emerald-500/20 animate-[spin_12s_linear_infinite_reverse]"></div>
+            
+            <!-- Core Shield Card -->
+            <div class="relative z-10 w-44 h-44 rounded-3xl glass-panel-gold border border-gold-400/50 flex flex-col items-center justify-center p-6 text-center shadow-2xl glow-gold">
+              <svg class="w-16 h-16 text-gold-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+              <span class="text-xs font-mono font-bold text-white uppercase tracking-wider">RBI Consent Secured</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. FREQUENTLY ASKED QUESTIONS (ACCORDION) -->
+  <section class="py-24 px-6 lg:px-12 bg-obsidian-900/40 border-t border-white/5">
+    <div class="max-w-4xl mx-auto">
+      
+      <div class="text-center mb-16">
+        <span class="text-xs font-mono text-gold-400 uppercase tracking-widest px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20">
+          Clarifications
+        </span>
+        <h2 class="text-3xl font-extrabold text-white mt-4">Common Questions</h2>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <div class="glass-panel rounded-2xl border border-white/10 p-6 cursor-pointer" onclick="toggleFaq(this)">
+          <div class="flex justify-between items-center">
+            <h4 class="text-base font-bold text-white">Does this replace my CA or accountant?</h4>
+            <span class="text-gold-400 text-xl font-mono transform transition-transform duration-300 faq-icon">+</span>
+          </div>
+          <p class="text-sm text-slate-300 mt-3 hidden leading-relaxed faq-answer">
+            No. MSME Twin works alongside your CA. While your CA looks backward to file returns and audit taxes, MSME Twin looks forward 90 days to ensure you actually have the liquid cash in your account when the tax is due.
+          </p>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="glass-panel rounded-2xl border border-white/10 p-6 cursor-pointer" onclick="toggleFaq(this)">
+          <div class="flex justify-between items-center">
+            <h4 class="text-base font-bold text-white">What if I have multiple current accounts?</h4>
+            <span class="text-gold-400 text-xl font-mono transform transition-transform duration-300 faq-icon">+</span>
+          </div>
+          <p class="text-sm text-slate-300 mt-3 hidden leading-relaxed faq-answer">
+            Our Account Aggregator integration can sync multiple FIPs (Financial Information Providers) simultaneously, merging all your cash flows into one holistic digital twin.
+          </p>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="glass-panel rounded-2xl border border-white/10 p-6 cursor-pointer" onclick="toggleFaq(this)">
+          <div class="flex justify-between items-center">
+            <h4 class="text-base font-bold text-white">Do I have to upload invoices manually?</h4>
+            <span class="text-gold-400 text-xl font-mono transform transition-transform duration-300 faq-icon">+</span>
+          </div>
+          <p class="text-sm text-slate-300 mt-3 hidden leading-relaxed faq-answer">
+            Never. By connecting with the GSTN portal via API, we automatically pull your B2B outward supplies (GSTR-1) and e-Way bills and match them against your bank inflows.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 9. FINAL HIGH-IMPACT CTA -->
+  <section class="py-24 px-6 lg:px-12 relative overflow-hidden">
+    <div class="max-w-5xl mx-auto rounded-3xl glass-panel-gold border border-gold-500/40 p-8 sm:p-16 text-center relative glow-gold">
+      
+      <div class="relative z-10 max-w-2xl mx-auto">
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          Ready to Turn Panic into <br><span class="text-gold-400">Predictable Growth?</span>
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base mt-4 leading-relaxed">
+          Join Indian MSMEs taking command of their GST liquidity and cash cycles. Connect your Account Aggregator sandbox in under 2 minutes.
+        </p>
+
+        <!-- Direct GSTIN / Connect Form -->
+        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+          <input type="text" placeholder="Enter Company GSTIN or Work Email" class="w-full px-4 py-3.5 rounded-xl bg-obsidian-950/90 border border-gold-500/40 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 font-mono">
+          <button class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-obsidian-950 font-bold text-sm tracking-tight whitespace-nowrap transition-all glow-gold">
+            Launch Twin →
+          </button>
+        </div>
+
+        <div class="mt-6 flex items-center justify-center gap-6 text-xs font-mono text-slate-400">
+          <span class="flex items-center gap-1.5">✓ Zero Setup Fee</span>
+          <span class="flex items-center gap-1.5">✓ RBI Compliant</span>
+          <span class="flex items-center gap-1.5">✓ Instant AA Sync</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-12 px-6 lg:px-12 border-t border-white/5 text-slate-500 text-xs font-mono">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-white font-sans">MSME Twin</span>
+        <span>— Developed for Smart India Hackathon (SIH)</span>
+      </div>
+      <div>
+        Built with RBI Account Aggregator & Sahamati Ecosystem Guidelines
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC FOR REAL-TIME INTERACTION -->
+  <script>
+    // 1. Interactive Hero Scrubber Logic
+    function updateHeroSimulation(day) {
+      document.getElementById('current-day-label').innerText = day;
+      
+      const indicator = document.getElementById('timeline-indicator');
+      const percentage = (day / 90) * 100;
+      indicator.style.left = percentage + '%';
+
+      const alertBox = document.getElementById('dynamic-alert-box');
+      const alertTitle = document.getElementById('alert-title');
+      const alertAmount = document.getElementById('alert-amount');
+      const alertDesc = document.getElementById('alert-desc');
+      const resolveBtn = document.getElementById('resolve-btn');
+
+      if (day >= 15 && day <= 24) {
+        // GST Deficit Alert
+        alertBox.className = "mt-5 p-4 rounded-xl bg-crimson-950/40 border border-crimson-500/40 flex items-start gap-3.5 transition-all";
+        alertTitle.innerText = "Critical GST Deficit on Day 20";
+        alertTitle.className = "text-sm font-bold text-white font-mono";
+        alertAmount.innerText = "- ₹2,45,000 Deficit";
+        alertAmount.className = "text-xs font-mono text-crimson-400 font-bold";
+        alertDesc.innerHTML = "Buyer <strong>Tata Motors Vendor Tier-2</strong> delay variance (+28 days) will create a GSTR-3B default gap on Day 20.";
+        resolveBtn.style.display = "block";
+      } else if (day > 24) {
+        // Safe post-recovery
+        alertBox.className = "mt-5 p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/40 flex items-start gap-3.5 transition-all";
+        alertTitle.innerText = "Liquidity Normalized";
+        alertTitle.className = "text-sm font-bold text-white font-mono";
+        alertAmount.innerText = "+ ₹4,10,000 Surplus";
+        alertAmount.className = "text-xs font-mono text-emerald-400 font-bold";
+        alertDesc.innerHTML = "Invoice discounting cleared deficit. GSTR-3B filed on time without penalties.";
+        resolveBtn.style.display = "none";
+      } else {
+        // Day 1 to 14
+        alertBox.className = "mt-5 p-4 rounded-xl bg-slate-900 border border-slate-800 flex items-start gap-3.5 transition-all";
+        alertTitle.innerText = "Stable Cash Buffer";
+        alertTitle.className = "text-sm font-bold text-white font-mono";
+        alertAmount.innerText = "+ ₹1,80,000 Inflow";
+        alertAmount.className = "text-xs font-mono text-slate-300 font-bold";
+        alertDesc.innerHTML = "Cash buffer adequate for operational payroll. Approaching GST liability window.";
+        resolveBtn.style.display = "none";
+      }
+    }
+
+    // Resolve Shortfall action button
+    function resolveShortfall() {
+      const alertBox = document.getElementById('dynamic-alert-box');
+      alertBox.className = "mt-5 p-4 rounded-xl bg-emerald-950/50 border border-emerald-400/60 flex items-start gap-3.5 transition-all glow-emerald";
+      document.getElementById('alert-title').innerText = "✓ Liquidity Gap Bridged!";
+      document.getElementById('alert-amount').innerText = "₹2,50,000 Funded";
+      document.getElementById('alert-amount').className = "text-xs font-mono text-emerald-400 font-bold";
+      document.getElementById('alert-desc').innerText = "Invoice #9042 successfully discounted via TReDS. Zero default risk for upcoming GSTR-3B.";
+      document.getElementById('resolve-btn').style.display = "none";
+    }
+
+    // 2. ROI Liquidity Calculator Logic
+    function calculateLiquidity() {
+      const turnoverLakhs = parseFloat(document.getElementById('turnoverSlider').value);
+      const delayDays = parseFloat(document.getElementById('delaySlider').value);
+
+      document.getElementById('turnover-display').innerText = '₹' + (turnoverLakhs >= 100 ? (turnoverLakhs/100).toFixed(2) + ' Crore' : turnoverLakhs + ' Lakhs');
+      document.getElementById('delay-display').innerText = delayDays + ' Days';
+
+      // 18% GST portion on turnover
+      const monthlyGst = (turnoverLakhs * 100000) * 0.18;
+      // Protected capital (Quarterly exposure trapped)
+      const protectedCap = monthlyGst * (delayDays / 30);
+      // Avoided 18% p.a. interest penalty on late GST
+      const penaltyAvoided = monthlyGst * 0.18 * 0.4;
+
+      document.getElementById('monthly-gst').innerText = '₹' + Math.round(monthlyGst).toLocaleString('en-IN');
+      document.getElementById('protected-capital').innerText = '₹' + Math.round(protectedCap).toLocaleString('en-IN');
+      document.getElementById('penalty-avoided').innerText = '₹' + Math.round(penaltyAvoided).toLocaleString('en-IN') + '/yr';
+    }
+
+    // 3. FAQ Accordion Toggle
+    function toggleFaq(card) {
+      const answer = card.querySelector('.faq-answer');
+      const icon = card.querySelector('.faq-icon');
+      
+      if (answer.classList.contains('hidden')) {
+        answer.classList.remove('hidden');
+        icon.innerText = '−';
+        icon.classList.add('rotate-180');
+      } else {
+        answer.classList.add('hidden');
+        icon.innerText = '+';
+        icon.classList.remove('rotate-180');
+      }
+    }
+
+    // Run initial calculator run
+    calculateLiquidity();
+  </script>
+</body>
+</html>

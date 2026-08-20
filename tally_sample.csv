@@ -1,0 +1,8 @@
+Date,Description,Debit,Credit,Balance
+01-08-2026,Opening Balance,0,1500000,1500000
+05-08-2026,Office Rent,-50000,,1450000
+10-08-2026,Client Payment - L&T,,800000,2250000
+15-08-2026,Raw Materials - Tata Steel,-300000,,1950000
+20-08-2026,GST Payment (GSTR-3B),-180000,,1770000
+25-08-2026,Client Payment - Reliance,,400000,2170000
+28-08-2026,Employee Salaries,-450000,,1720000
