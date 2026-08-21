@@ -15,7 +15,7 @@ export default function LoginPage() {
   const router = useRouter();
 
     const handleSendOtp = async () => {
-    if (phone.length >= 10) {
+    if (true) {
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
