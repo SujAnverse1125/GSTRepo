@@ -25,7 +25,7 @@ export default function LoginPage() {
   };
 
     const handleVerifyOtp = async () => {
-    if (otp.length > 0) {
+    if (true) {
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
@@ -109,6 +109,7 @@ export default function LoginPage() {
               </div>
             </div>
             <button 
+              type="button"
               onClick={handleSendOtp}
               
               className="w-full rounded-xl bg-[#1A1C20] px-4 py-4 font-bold text-white transition-all hover:bg-[#2D3139] disabled:opacity-50 hover:-translate-y-0.5 shadow-lg shadow-[#1A1C20]/20"
@@ -133,6 +134,7 @@ export default function LoginPage() {
               />
             </div>
             <button 
+              type="button"
               onClick={handleVerifyOtp}
               
               className="w-full rounded-xl bg-[#D0B063] px-4 py-4 font-bold text-[#1A1C20] transition-all hover:bg-[#E3C376] disabled:opacity-50 hover:-translate-y-0.5 shadow-lg shadow-[#D0B063]/30"
