@@ -710,7 +710,7 @@ export default function DashboardFlow() {
                      <input 
                        type="range" min="10" max="90" 
                        value={simulatedDelay} 
-                       onChange={(e) => setSimulatedDelay(parseInt(e.target.value))}
+                       onChange={handleSimulationChange}
                        className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-[#D0B063]" 
                      />
                    </div>
