@@ -50,7 +50,7 @@ export default function DashboardFlow() {
             forecastHigh: val * 1.1
           }));
           setChartData(morphedData);
-          setMetrics(prev => ({ ...prev, current_balance: Math.min(...mlData.forecast_90_days) }));
+          setMetrics((prev: any) => ({ ...prev, current_balance: Math.min(...mlData.forecast_90_days) }));
         }
       } catch (err) {
         console.error("ML Integration Error:", err);
