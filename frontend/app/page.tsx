@@ -12,7 +12,7 @@ export default function LandingPage() {
       title: "GST Deficit Predicted",
       desc: "A ₹2.5L shortfall is expected on Day 18 due to Buyer Delay.",
       icon: <FileWarning className="w-5 h-5" />,
-      colors: "bg-rose-500/10 border-rose-500/20 text-rose-400",
+      colors: "bg-rose-500/10 border-rose-500/20 text-rose-300",
       iconBg: "bg-rose-500/20"
     },
     {
@@ -20,7 +20,7 @@ export default function LandingPage() {
       title: "Inflow Cleared",
       desc: "L&T invoice #9042 settled. Cash buffer increased by ₹1.2L.",
       icon: <CheckCircle2 className="w-5 h-5" />,
-      colors: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400",
+      colors: "bg-emerald-500/10 border-emerald-500/20 text-emerald-300",
       iconBg: "bg-emerald-500/20"
     },
     {
@@ -28,7 +28,7 @@ export default function LandingPage() {
       title: "Concentration Risk",
       desc: "Reliance Retail accounts for 68% of your current receivables.",
       icon: <Activity className="w-5 h-5" />,
-      colors: "bg-amber-500/10 border-amber-500/20 text-amber-400",
+      colors: "bg-amber-500/10 border-amber-500/20 text-amber-300",
       iconBg: "bg-amber-500/20"
     }
   ];
@@ -108,7 +108,7 @@ export default function LandingPage() {
               {/* Header */}
               <div className="flex justify-between items-center mb-8 border-b border-white/10 pb-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400">
+                  <div className="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-300">
                     <CheckCircle2 className="w-5 h-5" />
                   </div>
                   <div>
@@ -143,8 +143,8 @@ export default function LandingPage() {
                   {alerts[alertIdx].icon}
                 </div>
                 <div className="transition-opacity duration-500 animate-in fade-in" key={alertIdx}>
-                  <p className="font-bold text-sm">{alerts[alertIdx].title}</p>
-                  <p className="opacity-70 text-xs mt-1">{alerts[alertIdx].desc}</p>
+                  <p className="font-bold text-sm text-white">{alerts[alertIdx].title}</p>
+                  <p className="text-white/80 text-xs mt-1">{alerts[alertIdx].desc}</p>
                 </div>
               </div>
 
@@ -349,7 +349,7 @@ export default function LandingPage() {
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0">
-                  <Check className="w-5 h-5 text-emerald-400" />
+                  <Check className="w-5 h-5 text-emerald-300" />
                 </div>
                 <div>
                   <h4 className="text-xl font-bold mb-1">RBI Compliant</h4>
@@ -358,7 +358,7 @@ export default function LandingPage() {
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0">
-                  <Check className="w-5 h-5 text-emerald-400" />
+                  <Check className="w-5 h-5 text-emerald-300" />
                 </div>
                 <div>
                   <h4 className="text-xl font-bold mb-1">AES-256 Encryption</h4>
@@ -367,7 +367,7 @@ export default function LandingPage() {
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0">
-                  <Check className="w-5 h-5 text-emerald-400" />
+                  <Check className="w-5 h-5 text-emerald-300" />
                 </div>
                 <div>
                   <h4 className="text-xl font-bold mb-1">We Predict, Then We Delete</h4>

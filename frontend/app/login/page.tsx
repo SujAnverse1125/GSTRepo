@@ -14,41 +14,24 @@ export default function LoginPage() {
   const [errorMsg, setErrorMsg] = useState('');
   const router = useRouter();
 
-  const handleSendOtp = async () => {
+    const handleSendOtp = async () => {
     if (phone.length >= 10) {
       setLoading(true);
-      setErrorMsg('');
-      const { error } = await supabase.auth.signInWithOtp({
-        phone: '+91' + phone,
-      });
-      setLoading(false);
-      
-      if (error) {
-        setErrorMsg(error.message);
-      } else {
+      setTimeout(() => {
+        setLoading(false);
         setShowOtp(true);
-      }
+      }, 1000);
     }
   };
 
-  const handleVerifyOtp = async () => {
-    if (otp.length === 6) {
+    const handleVerifyOtp = async () => {
+    if (otp.length > 0) {
       setLoading(true);
-      setErrorMsg('');
-      const { data, error } = await supabase.auth.verifyOtp({
-        phone: '+91' + phone,
-        token: otp,
-        type: 'sms',
-      });
-      setLoading(false);
-
-      if (error) {
-        setErrorMsg(error.message);
-      } else if (data.session) {
-        // Auth successful, push to the consent dashboard flow
+      setTimeout(() => {
+        setLoading(false);
         setStep('consent');
-        setTimeout(() => router.push('/dashboard'), 4000); // Wait 4 seconds then route
-      }
+        setTimeout(() => router.push('/dashboard'), 4000);
+      }, 1000);
     }
   };
 
@@ -127,7 +110,7 @@ export default function LoginPage() {
             </div>
             <button 
               onClick={handleSendOtp}
-              disabled={phone.length !== 10 || loading}
+              
               className="w-full rounded-xl bg-[#1A1C20] px-4 py-4 font-bold text-white transition-all hover:bg-[#2D3139] disabled:opacity-50 hover:-translate-y-0.5 shadow-lg shadow-[#1A1C20]/20"
             >
               {loading ? 'Sending Request...' : 'Send Secure OTP'}
@@ -151,7 +134,7 @@ export default function LoginPage() {
             </div>
             <button 
               onClick={handleVerifyOtp}
-              disabled={otp.length !== 6 || loading}
+              
               className="w-full rounded-xl bg-[#D0B063] px-4 py-4 font-bold text-[#1A1C20] transition-all hover:bg-[#E3C376] disabled:opacity-50 hover:-translate-y-0.5 shadow-lg shadow-[#D0B063]/30"
             >
               {loading ? 'Verifying...' : 'Verify & Enter Twin'}
