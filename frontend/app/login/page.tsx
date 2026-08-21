@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { supabase } from '../../utils/supabase';
+
 import { useRouter } from 'next/navigation';
 import { ShieldCheck, Activity } from 'lucide-react';
 
