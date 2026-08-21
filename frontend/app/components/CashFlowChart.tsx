@@ -47,9 +47,9 @@ export default function CashFlowChart({ data }: { data: CashPoint[] }) {
           </defs>
           <CartesianGrid stroke="#1A1C20" strokeOpacity={0.05} strokeDasharray="3 3" vertical={false} />
           <XAxis dataKey="label" stroke="#1A1C20" strokeOpacity={0.4} tickLine={false} axisLine={false} interval={9} tick={{ fontSize: 12, fontWeight: 500 }} />
-          <YAxis stroke="#1A1C20" strokeOpacity={0.4} tickLine={false} axisLine={false} tickFormatter={(value) => `₹${Math.round(value / 1000)}k`} tick={{ fontSize: 12, fontWeight: 500 }} />
+          <YAxis stroke="#1A1C20" strokeOpacity={0.4} tickLine={false} axisLine={false} tickFormatter={(value) => `Rs ${Math.round(value / 100000)}L`} tick={{ fontSize: 12, fontWeight: 500 }} />
           <Tooltip
-            formatter={(value: number) => [`₹${value.toLocaleString('en-IN')}`, 'Cash']}
+            formatter={(value: number) => [`Rs ${value.toLocaleString('en-IN')}`, 'Cash']}
             contentStyle={{ backgroundColor: '#1A1C20', border: 'none', borderRadius: 12, color: '#fff', fontWeight: 'bold' }}
             itemStyle={{ color: '#D0B063' }}
           />

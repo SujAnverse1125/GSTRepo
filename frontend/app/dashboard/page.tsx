@@ -218,7 +218,7 @@ export default function DashboardFlow() {
       const morphedData = baseChartData.map((point: any) => {
         // Simple visual simulation: Drop balance between GST Day (20) and the new delay day
         if (point.day >= 20 && point.day < newDelay) {
-          const drop = (newDelay - 20) * 15000; // Fake penalty calculation for visual effect
+          const drop = point.balance * 0.01 * (newDelay - 20); // 1% drop per day of delay for massive visual effect
           return { ...point, balance: point.balance - drop, forecastLow: point.forecastLow - drop };
         }
         return point;
