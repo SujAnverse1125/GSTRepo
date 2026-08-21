@@ -109,6 +109,7 @@ export default function DashboardFlow() {
   const [tourStep, setTourStep] = useState(1);
   const [logs, setLogs] = useState<string[]>([]);
   const [metrics, setMetrics] = useState<any>(null);
+  const [buyerBreakdown, setBuyerBreakdown] = useState<any[]>([]);
 
   const router = useRouter();
 
@@ -148,6 +149,7 @@ export default function DashboardFlow() {
       const data = await res.json();
       
       setBaseChartData(data.projectedCashflow);
+      if (data.buyerBreakdown) setBuyerBreakdown(data.buyerBreakdown);
       setChartData(data.projectedCashflow);
       setMetrics({
         current_balance: data.summary.cashOnHand,
@@ -261,6 +263,7 @@ export default function DashboardFlow() {
       const res = await fetch("https://msme-twin-backend.onrender.com/api/simulate");
       const data = await res.json();
       setBaseChartData(data.projectedCashflow);
+      if (data.buyerBreakdown) setBuyerBreakdown(data.buyerBreakdown);
       setChartData(data.projectedCashflow);
       setMetrics({
         current_balance: data.summary.cashOnHand,
