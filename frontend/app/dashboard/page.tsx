@@ -141,7 +141,7 @@ export default function DashboardFlow() {
     formData.append("file", selectedFile);
 
     try {
-      const res = await fetch("/api/upload", {
+      const res = await fetch("https://msme-twin-backend.onrender.com/api/upload", {
         method: "POST",
         body: formData,
       });
@@ -258,7 +258,7 @@ export default function DashboardFlow() {
 
     // Fetch actual data from python backend
     try {
-      const res = await fetch("/api/simulate");
+      const res = await fetch("https://msme-twin-backend.onrender.com/api/simulate");
       const data = await res.json();
       setBaseChartData(data.projectedCashflow);
       setChartData(data.projectedCashflow);
