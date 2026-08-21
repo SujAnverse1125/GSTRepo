@@ -612,39 +612,27 @@ export default function DashboardFlow() {
               <p className="text-[#1A1C20]/60 text-sm mb-6">AI analysis of your Account Aggregator data shows dangerous reliance on a single buyer.</p>
               
               <div className="space-y-5">
-                <div>
-                  <div className="flex justify-between text-sm font-bold mb-2">
-                    <span className="text-[#1A1C20]">Reliance Retail Ltd.</span>
-                    <span className="text-rose-600">68% of Receivables</span>
-                  </div>
-                  <div className="w-full h-3 bg-[#F2EFE9] rounded-full overflow-hidden">
-                    <div className="h-full bg-rose-500 rounded-full" style={{ width: '68%' }}></div>
-                  </div>
-                </div>
-                
-                <div>
-                  <div className="flex justify-between text-sm font-bold mb-2">
-                    <span className="text-[#1A1C20]">Tata Electronics</span>
-                    <span className="text-[#D0B063]">22% of Receivables</span>
-                  </div>
-                  <div className="w-full h-3 bg-[#F2EFE9] rounded-full overflow-hidden">
-                    <div className="h-full bg-[#D0B063] rounded-full" style={{ width: '22%' }}></div>
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex justify-between text-sm font-bold mb-2">
-                    <span className="text-[#1A1C20]">Other SMEs</span>
-                    <span className="text-emerald-500">10% of Receivables</span>
-                  </div>
-                  <div className="w-full h-3 bg-[#F2EFE9] rounded-full overflow-hidden">
-                    <div className="h-full bg-emerald-500 rounded-full" style={{ width: '10%' }}></div>
-                  </div>
+                  {buyerBreakdown && buyerBreakdown.length > 0 ? buyerBreakdown.slice(0, 3).map((b, i) => {
+                    const colors = ['bg-rose-500', 'bg-[#D0B063]', 'bg-emerald-500'];
+                    const textColors = ['text-rose-600', 'text-[#D0B063]', 'text-emerald-500'];
+                    return (
+                      <div key={i}>
+                        <div className="flex justify-between text-sm font-bold mb-2">
+                          <span className="text-[#1A1C20] truncate w-[150px]">{b.name}</span>
+                          <span className={textColors[i] || 'text-gray-500'}>{b.share}% of Receivables</span>
+                        </div>
+                        <div className="w-full h-3 bg-[#F2EFE9] rounded-full overflow-hidden">
+                          <div className={`h-full rounded-full ${colors[i] || 'bg-gray-500'}`} style={{ width: `${b.share}%` }}></div>
+                        </div>
+                      </div>
+                    );
+                  }) : (
+                    <div className="text-sm text-gray-500 text-center py-4">No concentration data found.</div>
+                  )}
                 </div>
               </div>
-            </div>
 
-            {/* {t.seasonal_pattern} */}
+              {/* {t.seasonal_pattern} */}
             <div className="bg-white rounded-[2rem] border border-[#1A1C20]/10 shadow-sm p-8 flex flex-col justify-center">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-black font-serif text-[#1A1C20]">{t.seasonal_pattern}</h3>
